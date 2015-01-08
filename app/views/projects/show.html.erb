@@ -1,9 +1,30 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
   <strong>Name:</strong>
   <%= @project.name %>
 </p>
 
+<% unless @project.tickets.empty? %>
+
+<%= "Tickets assigned to project #{@project.name}" %> <br>
+<% @project.tickets.each do |ticket| %>
+
+
+ <%= link_to ticket.title,[@project,ticket] %> <br>
+
+
+
+<% end %>
+
+<% else %>
+
+<%= "No tickets assigned" %>
+
+
+
+<% end %>
+
+<%= link_to 'New Ticket',new_project_ticket_path(@project) %>
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

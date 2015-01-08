@@ -1,0 +1,6 @@
+<div id="ticket">
+
+<h2><%= @ticket.title %> </h2>
+
+ <%= "Description #{@ticket.description}" %> <%= link_to "Edit ticket",edit_project_ticket_path(@project,@ticket) %>
+</div>
